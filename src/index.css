@@ -1,0 +1,18 @@
+
+@import "tailwindcss";
+@font-face {
+  font-family: 'HeyWowRegular';
+  src: url('./assets/Fonts/heywow/HeyWowRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'HeyWowRegular', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
