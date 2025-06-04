@@ -25,10 +25,10 @@ const Features = () => {
   ];
 
   return (
-    <div className="bg-black min-h-screen  py-10 text-white">
+    <div className="bg-black min-h-screen  py-5 text-white">
     
 
-      <div className="grid grid-cols-1 md:grid-cols-3 px-40 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {cards.slice(0, 3).map((card, idx) => (
           <div
             key={idx}
@@ -45,7 +45,7 @@ const Features = () => {
       </div>
 
       {/* Bottom 2 Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 md:w-2/3 px-28 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 md:w-2/3 mx-auto">
         {cards.slice(3).map((card, idx) => (
           <div
             key={idx}

@@ -1,32 +1,60 @@
-import React from 'react'
+import React from 'react';
 
 const Waitlist = () => {
   return (
-    <div className='w-full h-full'>
-        <div style={{background: 'radial-gradient(45.39% 100% at 50% 0%, #393333 0%, #0A0A0A 100%)'}}   className="min-h-screen px-10 py-20 text-white">
-            <h1 className='uppercase '>Join the waitlist</h1>
+    <div className="w-full h-full">
+      <div
+        style={{
+          background: 'radial-gradient(45.39% 100% at 50% 0%, #393333 0%, #0A0A0A 100%)',
+        }}
+        className=" px-10 py-8 text-white"
+      >
+        <h1 className="uppercase text-sm tracking-widest mb-10">Join the waitlist</h1>
 
-            <div className='flex flex-row justify-between items-center'>
-                <div>
-                    <h1>Full Name</h1>
-                    <input type='text' placeholder='John doe' className='border-[#555555] w-full px-2 p-1  border-[1px] bg-[#282828] '  />
-                </div>
-                  <div>
-                    <h1>Email ID</h1>
-                    <input type='text' placeholder='email@example.com' className='border-[#555555] w-full px-2 p-1 border-[1px] bg-[#282828] ' />
-                </div>
-                  <div>
-                    <h1>Designation</h1>
-                    <input type='text' placeholder='Product Manager' className='border-[#555555] w-full border-[1px] px-2 p-1 bg-[#282828]' />
-                </div>
+        <form className="flex flex-col gap-6">
+          
+          <div className="flex flex-col md:flex-row gap-6 w-full">
+            <div className="flex flex-col w-full">
+              <label className="text-sm mb-2">Full Name</label>
+              <input
+                type="text"
+                placeholder="John doe"
+                className="w-full px-4 py-2 bg-[#282828] border border-[#555555] rounded outline-none"
+              />
             </div>
-            <div>
-                <button className='bg-[#0A0A0A] border-[#555555] border-[2px] rounded-xl p-1'>Submit Now</button>
+            <div className="flex flex-col w-full">
+              <label className="text-sm mb-2">Email ID</label>
+              <input
+                type="email"
+                placeholder="email@example.com"
+                className="w-full px-4 py-2 bg-[#282828] border border-[#555555] rounded outline-none"
+              />
             </div>
-        </div>
+            <div className="flex flex-col w-full">
+              <label className="text-sm mb-2">Designation</label>
+              <select
+                className="w-full px-4 py-2 bg-[#282828] border border-[#555555] rounded outline-none"
+              >
+                <option>Product Manager</option>
+                <option>Developer</option>
+                <option>Designer</option>
+              </select>
+            </div>
+          </div>
 
+          {/* Submit Button */}
+          <div className="flex justify-center mt-4">
+            <button
+              type="submit"
+              className="px-6 py-2 border-2 border-[#555555] rounded-full bg-[#0A0A0A] text-white hover:bg-[#1a1a1a] transition"
+            >
+              Submit Now
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Waitlist
+export default Waitlist;
