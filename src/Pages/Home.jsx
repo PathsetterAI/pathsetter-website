@@ -30,9 +30,7 @@ const Home = () => {
       </p>
     </div>
   </div>
-</div>
-
-     
+</div>     
       <div id="aboutus" className="w-full bg-black px-28 py-20 scroll-mt-28">
       
         <div className="flex flex-row w-full items-center justify-center space-x-10">
