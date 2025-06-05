@@ -7,13 +7,14 @@ import Waitlist from "./Waitlist";
 import Contact from "./Contact";
 import Aboutus from "./Aboutus";
 
+
 const Home = () => {
   return (
     <div className="relative w-full">
       <div className="fixed top-0 left-0 w-full z-50">
         <Header />
       </div>
-      <div id="hero" className="relative h-screen sticky top-0 z-0">
+      <div id="hero" className=" h-screen sticky top-0 z-0">
         <img
           src={AiImage}
           alt="Background"
@@ -74,6 +75,7 @@ const Home = () => {
               </h1>
             </div>
             <Features />
+        
           </div>
         </div>
         <div id="aboutus">
