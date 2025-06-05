@@ -61,7 +61,7 @@ const Features = () => {
       </div>
 
       {/* Bottom 2 Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 md:w-2/3 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 md:w-2/3 ">
         {cards.slice(3).map((card, idx) => (
           <div
             key={idx}
