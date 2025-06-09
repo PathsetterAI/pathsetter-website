@@ -56,43 +56,59 @@ const Features = () => {
     const isOpen = openIndexes.includes(idx);
 
     return (
-    <div
-  key={idx}
-  className="relative border border-[#555555] bg-[#111111] p-6 flex flex-col justify-between h-[400px]"
->
-  {/* Top content section with fixed height */}
-  <div className="overflow-hidden h-[220px] transition-all duration-500 ease-in-out">
-    <div
-      className={`transition-transform duration-500 ease-in-out ${
-        isOpen ? "-translate-y-10" : "translate-y-0"
-      }`}
-    >
-      <div className="flex flex-row w-full items-center justify-center">
-            <img src={card.image} alt="Images" />
-            </div>
-      <h3 className="text-xl font-semibold">{card.title}</h3>
-      <p className="text-[#888888]">{card.subTitle}</p>
       <div
-        className={`mt-4 text-gray-400 text-sm transition-opacity duration-500 ease-in-out ${
-          isOpen ? "opacity-100 h-auto" : "opacity-0 h-0"
-        }`}
+        key={idx}
+        className="relative border border-[#555555] bg-[#111111] p-6 flex flex-col justify-between h-[400px]"
       >
-        {card.description}
+    
+        <div className="overflow-hidden h-[300px] transition-all duration-500 ease-in-out">
+          <div
+            className={`transition-transform duration-500 ease-in-out ${
+              isOpen ? "-translate-y-40" : "translate-y-0"
+            }`}
+          >
+           
+            <div className="flex flex-row w-full items-center justify-center">
+              <img src={card.image} alt="Images" />
+            </div>
+
+            
+            <h3
+              className={`text-xl font-semibold text-center transition-all duration-500 ease-in-out ${
+                isOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+              }`}
+            >
+              {card.title}
+            </h3>
+        
+            <p
+              className={`text-[#888888] text-center transition-all duration-500 ease-in-out delay-100 ${
+                isOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+              }`}
+            >
+              {card.subTitle}
+            </p>
+            
+            <div
+              className={`mt-4 text-gray-400 text-sm text-center transition-all duration-500 ease-in-out delay-200 ${
+                isOpen ? "opacity-100 h-auto translate-x-0" : "opacity-0 h-0 -translate-x-full"
+              }`}
+            >
+              {card.description}
+            </div>
+          </div>
+        </div>
+
+       
+        <div className="pt-4 text-center"> 
+          <button
+            onClick={() => toggleDescription(idx)}
+            className="border border-gray-600 text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition"
+          >
+            {isOpen ? "Hide" : "Learn more"}
+          </button>
+        </div>
       </div>
-    </div>
-  </div>
-
-  {/* Fixed button section at bottom */}
-  <div className="pt-4">
-    <button
-      onClick={() => toggleDescription(idx)}
-      className="border border-gray-600 text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition"
-    >
-      {isOpen ? "Hide" : "Learn more"}
-    </button>
-  </div>
-</div>
-
     );
   };
 

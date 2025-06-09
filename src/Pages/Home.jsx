@@ -6,6 +6,7 @@ import Features from "./Features";
 import Waitlist from "./Waitlist";
 import Contact from "./Contact";
 import Aboutus from "./Aboutus";
+import Enterprise from "./Enterprise";
 
 
 const Home = () => {
@@ -18,7 +19,7 @@ const Home = () => {
         <img
           src={AiImage}
           alt="Background"
-          // className="w-full h-full object-cover"
+          // className="w-full h-full oject-cover"
           className="w-full h-full object-cover transition-all duration-700 ease-in-out"
         />
         {/* <div className="absolute top-0 left-0 w-full z-20">
@@ -75,7 +76,7 @@ const Home = () => {
               </h1>
             </div>
             <Features />
-        
+          <Enterprise />
           </div>
         </div>
         <div id="aboutus">
