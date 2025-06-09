@@ -6,8 +6,8 @@ import youtube from "../assets/Images/youtube.png";
 
 const Contact = () => {
   return (
-    <div className="w-full h-full  ">
-      <div className="px-28 py-10 bg-black text-white">
+    <div id="contactus" className="w-full h-full  ">
+      <div className="px-36 py-10 bg-black text-white">
         <div className="flex items-center justify-between">
           <div>
             <img src={alfred} alt="alfred Logo" />
@@ -18,11 +18,11 @@ const Contact = () => {
             <h1>About us</h1>
           </div>
         </div>
-        <div className="flex flex-row gap-3 pt-5">
+        {/* <div className="flex flex-row gap-3 pt-5">
           <img src={instagram} alt="Instagram Logo" />
           <img src={twitter} alt="Twitter Logo" />
           <img src={youtube} alt="Youtube Logo" />
-        </div>
+        </div> */}
         <div>
           <div className="pt-10 space-y-2">
             <h1 className="uppercase ">Contact info:</h1>
@@ -45,13 +45,13 @@ const Contact = () => {
           <div>
             <h1>© 2025, Pathsetter.ai, Inc.</h1>
           </div>
-          <div className="flex justify-center items-center gap-4 ">
+          {/* <div className="flex justify-center items-center gap-4 ">
             <span>Privacy</span>
             <span className="text-gray-600">|</span>
             <span>Terms</span>
             <span className="text-gray-600">|</span>
             <span>Security</span>
-          </div>
+          </div> */}
           <div>
             <h1>Alfred by Pathsetter AI © 2025. All rights reserved.</h1>
           </div>

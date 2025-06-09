@@ -1,14 +1,14 @@
 
 @import "tailwindcss";
 @font-face {
-  font-family: 'HeyWowRegular';
-  src: url('./assets/Fonts/heywow/HeyWowRegular.ttf') format('truetype');
+  font-family: 'GeistRegular';
+  src: url('./assets/Fonts/Geist/Geist-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 body {
-  font-family: 'HeyWowRegular', sans-serif;
+  font-family: 'GeistRegular', 'DMSans';
   margin: 0;
   padding: 0;
   box-sizing: border-box;

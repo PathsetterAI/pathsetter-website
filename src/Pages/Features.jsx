@@ -25,7 +25,7 @@ const Features = () => {
     {
       image: Traceability,
       title: "Full Traceability",
-      subTitle: "Track Every Cost, Every Change, Every Owner.",
+      subTitle: "Track Every Cost, Every Change.",
       description:
         "Each card carries embedded metadata for scope, budget, timeline, and responsibility—making it effortless to trace accountability and progress from initiation to closure.",
     },
@@ -58,49 +58,57 @@ const Features = () => {
     return (
       <div
         key={idx}
-        className="relative border border-[#555555] bg-[#111111] p-6 flex flex-col justify-between h-[400px]"
+        className="relative border border-[#555555] bg-[#111111] p-4 flex flex-col justify-between h-[400px]"
       >
-    
-        <div className="overflow-hidden h-[300px] transition-all duration-500 ease-in-out">
+        <div className="overflow-hidden h-[400px] transition-all  duration-500 ease-in-out">
           <div
-            className={`transition-transform duration-500 ease-in-out ${
+            className={`transition-transform duration-500  ease-in-out ${
               isOpen ? "-translate-y-40" : "translate-y-0"
             }`}
           >
-           
-            <div className="flex flex-row w-full items-center justify-center">
-              <img src={card.image} alt="Images" />
+            <div>
+              <div className="flex flex-row w-full items-center justify-center">
+                <img src={card.image} alt="Images" />
+              </div>
+
+              <h3
+                className={`text-xl font-semibold items-start transition-all duration-500 ease-in-out ${
+                  !isOpen
+                    ? "translate-x-0 opacity-100"
+                    : "-translate-x-full opacity-0"
+                }`}
+              >
+                {card.title}
+              </h3>
+
+              <p
+                className={`text-[#888888]  items-start transition-all duration-500 ease-in-out delay-100 ${
+                  !isOpen
+                    ? "translate-x-0 opacity-100"
+                    : "-translate-x-full opacity-0"
+                }`}
+              >
+                {card.subTitle}
+              </p>
             </div>
 
-            
-            <h3
-              className={`text-xl font-semibold text-center transition-all duration-500 ease-in-out ${
-                isOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
-              }`}
-            >
-              {card.title}
-            </h3>
-        
-            <p
-              className={`text-[#888888] text-center transition-all duration-500 ease-in-out delay-100 ${
-                isOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
-              }`}
-            >
-              {card.subTitle}
-            </p>
-            
             <div
-              className={`mt-4 text-gray-400 text-sm text-center transition-all duration-500 ease-in-out delay-200 ${
-                isOpen ? "opacity-100 h-auto translate-x-0" : "opacity-0 h-0 -translate-x-full"
+              className={` text-gray-400 text-sm text-left transition-all duration-500 ease-in-out delay-200 ${
+                isOpen
+                  ? "opacity-100 h-auto translate-x-0"
+                  : "opacity-0 h-0 -translate-x-full"
               }`}
             >
-              {card.description}
+              <p className={`text-white  text-xl font-semibold text-left `}>
+                {card.title}
+              </p>
+              <p className="text-white text-left text-md ">{card.subTitle}</p>
+              <p className="leading-6">{card.description}</p>
             </div>
           </div>
         </div>
 
-       
-        <div className="pt-4 text-center"> 
+        <div className="pt-4 ">
           <button
             onClick={() => toggleDescription(idx)}
             className="border border-gray-600 text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition"
@@ -114,12 +122,14 @@ const Features = () => {
 
   return (
     <div className="bg-black min-h-screen py-10 text-white px-4">
+      {/* First row: 3 cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {cards.slice(0, 3).map(renderCard)}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 md:w-2/3 mx-auto">
-        {cards.slice(3).map((card, i) => renderCard(card, i + 3))}
+      {/* Second row: 2 cards aligned left */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 md:w-2/3 items-start">
+        {cards.slice(3, 5).map((card, i) => renderCard(card, i + 3))}
       </div>
     </div>
   );

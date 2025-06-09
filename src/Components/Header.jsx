@@ -3,7 +3,7 @@ import logo from "../assets/Images/PathsetterLogo.png";
 const Header = () => {
   return (
     <header>
-      <div className="flex flex-row items-center justify-between pt-10 px-32">
+      <div className="flex flex-row items-center justify-between  py-2 px-4">
         <div className="flex items-center gap-16">
           <img src={logo} alt="Logo" />
           <div className="flex gap-16 text-white">
@@ -12,9 +12,12 @@ const Header = () => {
             <a href="#aboutus">ABOUT US</a>
           </div>
         </div>
-        <h4 className="rounded-full border-[2px] p-1  px-4 text-lg text-white">
+        <a
+          href="#waitlist"
+          className="rounded-full border-[2px] p-1  px-4 text-md text-white"
+        >
           GET A DEMO
-        </h4>
+        </a>
       </div>
     </header>
   );

@@ -6,24 +6,27 @@ import Aboutus from "../Components/Aboutus";
 import Waitlist from "../Components/Waitlist";
 import Contact from "../Components/Contact";
 const MainPage = () => {
-   return (
+  return (
     <div className="relative w-full">
       <div className="fixed top-0 left-0 w-full z-50">
         <Header />
       </div>
-
-      <HeroSection />
+      <div id="hero">
+        <HeroSection />
+      </div>
 
       <div id="info" className="relative z-10">
         <FeaturesSection />
         <div id="aboutus">
           <Aboutus />
         </div>
-        <Waitlist />
+        <div id="waitlist">
+          <Waitlist />
+        </div>
         <Contact />
       </div>
     </div>
   );
 };
 
-export default MainPage
+export default MainPage;
