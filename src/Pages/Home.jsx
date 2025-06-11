@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AiImage from "../assets/Images/AiImage.jpg";
 import Header from "../Components/Header";
 // import timeline from "../assets/Videos/Alfredintro.mp4";
@@ -12,21 +12,19 @@ import Aboutus from "./Aboutus";
 import Enterprise from "./Enterprise";
 
 const Home = () => {
+  const [activeSection, setActiveSection] = useState("home");
   return (
     <div className="relative w-full">
-      {/* <div className="fixed top-0 left-0 w-full z-50">
-        <Header />
-      </div> */}
+    
       <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/20 shadow-md">
-        <Header />
+       <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+
       </div>
-      <div id="hero" className=" h-screen sticky top-0 z-0">
-        {/* <img
-          src={AiImage}
-          alt="Background"
-          // className="w-full h-full oject-cover"
-          className="w-full h-full object-cover transition-all duration-700 ease-in-out"
-        /> */}
+    
+
+     
+      <div id="home" className="h-screen sticky top-0 z-0  scroll-mt-[4500px]">
+       
         <video
           autoPlay
           loop
@@ -36,20 +34,7 @@ const Home = () => {
         >
           <source src={intro} type="video/mp4" />
         </video>
-        {/* <div className="absolute top-0 left-0 w-full z-20">
-          <Header />
-        </div> */}
-        {/* <div className="absolute inset-0 z-10 flex items-center justify-left px-2 ">
-          <div className="flex flex-col items-start  ">
-            <h1 className="text-5xl text-black font-bold">
-              The Future of Infrastructure is here…
-            </h1>
-            <p className="text-lg text-black">
-              From planning to execution, harness AI to reimagine how
-              Infrastructure gets delivered
-            </p>
-          </div>
-        </div> */}
+       
         <div className="absolute bottom-0 left-0 z-10 px-20 mb-20 items-center">
           <div className="flex flex-col items-start">
             <h1 className="text-5xl text-white font-bold">
@@ -61,12 +46,14 @@ const Home = () => {
             </p>
           </div>
         </div>
-      </div>
+      
+      
+       </div>
       <div id="info" className="relative z-10">
         <div>
           <div
             id="features"
-            className="w-full bg-black px-28 py-20 scroll-mt-28"
+            className="w-full bg-black px-28 py-20  "
           >
             <div className="flex flex-row w-full items-center justify-center space-x-10">
               <div className="w-3/5 text-white">

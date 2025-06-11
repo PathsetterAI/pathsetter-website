@@ -1,5 +1,6 @@
 import React from "react";
 import CEO from "../assets/Images/Founder.png";
+import linkedin from "../assets/Images/linkedin.png"
 
 const Aboutus = () => {
   return (
@@ -7,7 +8,7 @@ const Aboutus = () => {
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start  gap-10">
         {/* Left side: Text content */}
         <div className="text-white space-y-6 lg:w-2/3">
-          <p className="uppercase text-xl tracking-widest">About us</p>
+          <p className="uppercase text-3xl tracking-widest">About us</p>
           <h1 className="text-xl font-bold leading-snug">
             Solving Infrastructure's Toughest Problems with AI. Together.
           </h1>
@@ -41,15 +42,13 @@ const Aboutus = () => {
             </p>
           </div>
 
-          {/* <button className="mt-6 rounded-full border border-gray-500 px-6 py-2 text-white hover:bg-white hover:text-black transition">
-            Join us on the path to smarter infrastructure.
-          </button> */}
+       
         </div>
 
-        {/* Middle separator line */}
+      
         <div className="hidden lg:block w-px bg-gray-600 self-stretch" />
 
-        {/* Right side: Founder Image */}
+      
         <div className="flex flex-col items-center text-white text-center space-y-4 lg:w-1/3">
           <p className="uppercase tracking-widest text-sm">Founder</p>
           <img
@@ -57,8 +56,19 @@ const Aboutus = () => {
             alt="Founder & CEO"
             className="w-48 h-48 rounded-lg object-cover shadow-lg"
           />
+          <div className="flex flex-row gap-8 items-center">
           <h3 className="text-xl font-bold">Sridhar Gadhi</h3>
-          {/* <p className="text-sm text-gray-300">Founder & CEO</p> */}
+        
+        <a href="https://www.linkedin.com/in/sridhargadhi/">
+           <img
+  src={linkedin}
+  alt="Linked In"
+  className="invert brightness-200 w-8 h-8" 
+/>
+</a>
+
+          </div>
+         
         </div>
       </div>
     </div>
