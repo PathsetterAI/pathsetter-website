@@ -12,17 +12,19 @@ const Header = ({ activeSection, setActiveSection }) => {
         <div className="flex items-center gap-16">
           <img src={logo} alt="Logo" />
           <div className="flex gap-16 font-light">
-           <a
-  href="#home"
-  onClick={(e) => {
-    e.preventDefault();
-    setActiveSection("home");
-    document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
-  }}
-  className={linkClasses("home")}
->
-  HOME
-</a>
+            <a
+              href="#home"
+              onClick={(e) => {
+                e.preventDefault();
+                setActiveSection("home");
+                document
+                  .getElementById("home")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className={linkClasses("home")}
+            >
+              HOME
+            </a>
 
             <a
               href="#features"

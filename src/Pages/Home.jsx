@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AiImage from "../assets/Images/AiImage.jpg";
 import Header from "../Components/Header";
-// import timeline from "../assets/Videos/Alfredintro.mp4";
 import timeline from "../assets/Videos/red.mp4";
 import intro from "../assets/Videos/IntroVideo.mp4";
 
@@ -15,16 +14,14 @@ const Home = () => {
   const [activeSection, setActiveSection] = useState("home");
   return (
     <div className="relative w-full">
-    
       <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/20 shadow-md">
-       <Header activeSection={activeSection} setActiveSection={setActiveSection} />
-
+        <Header
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+        />
       </div>
-    
 
-     
       <div id="home" className="h-screen sticky top-0 z-0  scroll-mt-[4500px]">
-       
         <video
           autoPlay
           loop
@@ -34,7 +31,7 @@ const Home = () => {
         >
           <source src={intro} type="video/mp4" />
         </video>
-       
+
         <div className="absolute bottom-0 left-0 z-10 px-20 mb-20 items-center">
           <div className="flex flex-col items-start">
             <h1 className="text-5xl text-white font-bold">
@@ -46,15 +43,10 @@ const Home = () => {
             </p>
           </div>
         </div>
-      
-      
-       </div>
+      </div>
       <div id="info" className="relative z-10">
         <div>
-          <div
-            id="features"
-            className="w-full bg-black px-28 py-20  "
-          >
+          <div id="features" className="w-full bg-black px-28 py-20  ">
             <div className="flex flex-row w-full items-center justify-center space-x-10">
               <div className="w-3/5 text-white">
                 <p className="uppercase text-xl">

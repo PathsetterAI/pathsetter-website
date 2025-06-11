@@ -12,14 +12,13 @@ const Contact = () => {
           <div>
             <img src={alfred} alt="alfred Logo" />
           </div>
-        <div className="flex flex-row gap-6 uppercase">
-  <a href="#home" >Home</a>
-  <a href="#features" >Features</a>
-  <a href="#aboutus" >About us</a>
-</div>
-
+          <div className="flex flex-row gap-6 uppercase">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#aboutus">About us</a>
+          </div>
         </div>
-      
+
         <div>
           <div className="pt-10 space-y-2">
             <h1 className="uppercase ">Contact info:</h1>
@@ -42,7 +41,7 @@ const Contact = () => {
           <div>
             <h1>© 2025, Pathsetter.ai, Inc.</h1>
           </div>
-        
+
           <div>
             <h1>Alfred by Pathsetter AI © 2025. All rights reserved.</h1>
           </div>
