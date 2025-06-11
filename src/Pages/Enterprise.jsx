@@ -5,6 +5,7 @@ import EnterpriseGradeSecurity from "../Components/svg/EnterpriseSvg/EnterpriseG
 import ResponsibleAI from "../Components/svg/EnterpriseSvg/ResponsibleAI";
 import MLIntelligence from "../Components/svg/EnterpriseSvg/MLIntelligence";
 import RoleAccessControl from "../Components/svg/EnterpriseSvg/RoleAccessControl";
+import Integrate from "../Components/svg/EnterpriseSvg/Integrate";
 
 const features = [
   {
@@ -43,7 +44,7 @@ const features = [
       "Fine-grained access rules and card-level versioning ensure the right people see the right data at the right time—enabling distributed teams to work safely and in sync.",
   },
   {
-    icon: <ResponsibleAI />,
+    icon: <Integrate />,
     title: "Ready to Integrate (Coming Soon)",
     subtitle: "No More Tool Fragmentation",
     description:
@@ -54,14 +55,14 @@ const features = [
 const Enterprise = () => {
   return (
     <section className="bg-black  py-20 text-white">
-      <h2 className="text-sm tracking-widest mb-12 text-gray-400">ENTERPRISE READY</h2>
+      <h2 className="text-sm tracking-widest mb-12 text-[#B5C0C9]">ENTERPRISE READY</h2>
       <div className="grid grid-cols-1 leading-6 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((item, index) => (
           <div key={index} className="space-y-2 border-l   border-gray-700 pl-8">
             <div className="text-white">{item.icon}</div>
-            <h3 className="font-semibold pt-8 text-lg">{item.title}</h3>
-            <h4 className="text-sm text-gray-400 font-medium">{item.subtitle}</h4>
-            <p className="text-sm pt-2 text-gray-400">{item.description}</p>
+            <h3 className="font-semibold text-[#E2E8F0] pt-8 text-lg">{item.title}</h3>
+            <h4 className="text-sm text-[#9CA3AF] font-medium">{item.subtitle}</h4>
+            <p className="text-sm pt-2 text-[#9CA3AF]">{item.description}</p>
           </div>
         ))}
       </div>

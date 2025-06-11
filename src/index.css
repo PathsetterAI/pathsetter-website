@@ -1,18 +1,62 @@
-
 @import "tailwindcss";
+
+/* Custom Font Faces */
 @font-face {
   font-family: 'GeistRegular';
   src: url('./assets/Fonts/Geist/Geist-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'GeistMedium';
-  src: url('./assets/Fonts/Geist/Geist-Medium.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'GeistMedium';
+  src: url('./assets/Fonts/Geist/Geist-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GeistExtraBold';
+  src: url('./assets/Fonts/Geist/Geist-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Global Smooth Scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Base Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'GeistRegular', sans-serif;
+  background-color: black;
+  color: white;
+}
+
+/* Sticky Section Support: offset for sticky header */
+section,
+div[id] {
+  scroll-margin-top: 100px; /* Adjust based on your fixed header height */
+}
+
+/* Optional: Active header link style — toggled via JS */
+a.active {
+  font-weight: 600;
+  text-decoration: underline;
+  color: white;
+}
+
+/* Optional utility class for sticky blurred header */
+.header-blur {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
 }

@@ -99,7 +99,7 @@ const Waitlist = () => {
   };
 
   return (
-    <div id="waitlist" className="w-full h-full">
+    <div id="waitlist" className="w-full h-full scroll-mt-[80px]">
       <div
         style={{
           background:
@@ -107,7 +107,7 @@ const Waitlist = () => {
         }}
         className="px-8 md:px-36 py-8 text-white"
       >
-        <h1 className="uppercase text-sm tracking-widest mb-10">
+        <h1 className="uppercase text-sm text-[#B5C0C9] tracking-widest mb-10">
           Join the waitlist
         </h1>
 
@@ -115,7 +115,7 @@ const Waitlist = () => {
           <div className="flex flex-col md:flex-row gap-6 w-full">
             {/* Name */}
             <div className="flex flex-col w-full">
-              <label className="text-sm mb-2">Full Name</label>
+              <label className="text-sm text-[#C2C2C2] mb-2">Full Name</label>
               <input
                 name="name"
                 type="text"
@@ -132,7 +132,7 @@ const Waitlist = () => {
 
             {/* Email */}
             <div className="flex flex-col w-full">
-              <label className="text-sm mb-2">Email ID</label>
+              <label className="text-sm text-[#C2C2C2] mb-2">Email ID</label>
               <input
                 name="email"
                 type="email"
@@ -149,7 +149,7 @@ const Waitlist = () => {
 
             {/* Role */}
             <div className="flex flex-col w-full">
-              <label className="text-sm mb-2">Designation</label>
+              <label className="text-sm text-[#C2C2C2] mb-2">Designation</label>
               <input
                 name="role"
                 type="text"
@@ -170,7 +170,7 @@ const Waitlist = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`px-6 py-2 border-2 border-[#555555] rounded-full text-white transition ${
+              className={`px-6 py-2 border-2 border-[#555555] rounded-full text-[#FFFFFF] transition ${
                 isSubmitting
                   ? "opacity-50 cursor-not-allowed"
                   : "bg-[#0A0A0A] hover:bg-[#1a1a1a]"

@@ -58,21 +58,33 @@ const Features = () => {
     return (
       <div
         key={idx}
-        className="relative border border-[#555555] bg-[#111111] p-4 flex flex-col justify-between h-[400px]"
+        className="relative border border-[#555555] bg-[#111111] p-4 flex flex-col justify-between h-[400px] rounded-lg overflow-hidden"
       >
-        <div className="overflow-hidden h-[400px] transition-all  duration-500 ease-in-out">
+        {/* The "Light Bright" Effect at the top */}
+        {/* Increased height (e.g., h-16) and used a top-to-bottom gradient with transparent stops */}
+        <div
+          className={`absolute top-0 left-0 right-0 h-16 // Increased height for a more diffused glow (64px)
+            bg-gradient-to-b from-[rgba(255,255,255,0.3)] via-[rgba(247,247,247,0.1)] to-transparent
+            transition-opacity duration-300 ease-in-out rounded-t-lg
+            ${isOpen ? "opacity-100" : "opacity-0"}`}
+        ></div>
+
+        <div className="overflow-hidden h-full transition-all duration-500 ease-in-out">
+          {/* Main content div that slides up/down */}
           <div
-            className={`transition-transform duration-500  ease-in-out ${
-              isOpen ? "-translate-y-40" : "translate-y-0"
+            className={`transition-transform duration-500 ease-in-out ${
+              isOpen ? "-translate-y-[160px]" : "translate-y-0"
             }`}
           >
+            {/* Image */}
             <div>
               <div className="flex flex-row w-full items-center justify-center">
                 <img src={card.image} alt="Images" />
               </div>
 
+              {/* Title when closed */}
               <h3
-                className={`text-xl font-semibold items-start transition-all duration-500 ease-in-out ${
+                className={`text-xl font-semibold items-start text-white transition-all duration-500 ease-in-out ${
                   !isOpen
                     ? "translate-x-0 opacity-100"
                     : "-translate-x-full opacity-0"
@@ -81,8 +93,9 @@ const Features = () => {
                 {card.title}
               </h3>
 
+              {/* Subtitle when closed */}
               <p
-                className={`text-[#888888]  items-start transition-all duration-500 ease-in-out delay-100 ${
+                className={`text-[#888888] items-start transition-all duration-500 ease-in-out delay-100 ${
                   !isOpen
                     ? "translate-x-0 opacity-100"
                     : "-translate-x-full opacity-0"
@@ -92,22 +105,24 @@ const Features = () => {
               </p>
             </div>
 
+            {/* Description content when open */}
             <div
-              className={` text-gray-400 text-sm text-left transition-all duration-500 ease-in-out delay-200 ${
+              className={`text-gray-400 text-sm text-left transition-all duration-500 ease-in-out delay-200 ${
                 isOpen
                   ? "opacity-100 h-auto translate-x-0"
                   : "opacity-0 h-0 -translate-x-full"
               }`}
             >
-              <p className={`text-white  text-xl font-semibold text-left `}>
+              <p className={`text-[#E2E8F0] text-xl font-semibold text-left `}>
                 {card.title}
               </p>
-              <p className="text-white text-left text-md ">{card.subTitle}</p>
-              <p className="leading-6">{card.description}</p>
+              <p className="text-[#9CA3AF] text-left text-md ">{card.subTitle}</p>
+              <p className="leading-6 pt-2">{card.description}</p>
             </div>
           </div>
         </div>
 
+        {/* Learn More / Hide Button */}
         <div className="pt-4 ">
           <button
             onClick={() => toggleDescription(idx)}
