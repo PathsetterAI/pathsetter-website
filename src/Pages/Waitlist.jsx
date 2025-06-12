@@ -17,20 +17,27 @@ const Waitlist = () => {
   });
 
   const validate = (name, value) => {
-    switch (name) {
-      case "name":
-      case "role":
-        return /^[A-Za-z\s]+$/.test(value)
-          ? ""
-          : "Only letters and spaces are allowed.";
-      case "email":
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-          ? ""
-          : "Please enter a valid email.";
-      default:
-        return "";
-    }
-  };
+  const trimmedValue = value.trim();
+
+  switch (name) {
+    case "name":
+    case "role":
+      if (!trimmedValue) return "This field is required.";
+      return /^[A-Za-z\s]+$/.test(trimmedValue)
+        ? ""
+        : "Only letters and spaces are allowed.";
+
+    case "email":
+      // Stricter email validation
+      return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(trimmedValue)
+        ? ""
+        : "Please enter a valid email address.";
+
+    default:
+      return "";
+  }
+};
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -116,12 +123,15 @@ const Waitlist = () => {
             {/* Name */}
             <div className="flex flex-col w-full">
               <label className="text-sm text-[#C2C2C2] mb-2">Full Name</label>
-              <input
-                name="name"
-                type="text"
-                placeholder="John Doe"
-                value={formData.name}
-                onChange={handleChange}
+             <input
+  name="name"
+  type="text"
+  placeholder="John Doe"
+  value={formData.name}
+  onChange={(e) => {
+    if (e.target.value.startsWith(" ") && e.target.value.length === 1) return;
+    handleChange(e);
+  }}
                 required
                 className="w-full px-4 py-2 bg-[#282828] border border-[#555555] rounded outline-none"
               />
@@ -155,7 +165,10 @@ const Waitlist = () => {
                 type="text"
                 placeholder="Product Manager"
                 value={formData.role}
-                onChange={handleChange}
+               onChange={(e) => {
+    if (e.target.value.startsWith(" ") && e.target.value.length === 1) return;
+    handleChange(e);
+  }}
                 required
                 className="w-full px-4 py-2 bg-[#282828] border border-[#555555] rounded outline-none"
               />
