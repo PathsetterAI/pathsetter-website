@@ -99,7 +99,7 @@ const Home = () => {
             <h1 className="text-5xl ">
               The Future of Infrastructure is here…
             </h1>
-            <p className="text-[#C2C4C6]">
+            <p className="text-white">
               From planning to execution, harness AI to reimagine how Infrastructure gets delivered
             </p>
           </div>
