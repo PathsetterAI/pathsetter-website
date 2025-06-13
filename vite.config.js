@@ -8,6 +8,11 @@ export default defineConfig({
     tailwindcss(),
 
   ],
+  extend: {
+      fontFamily: {
+        mokoto: ["Mokoto", "sans-serif"],
+      },
+    },
 })
 
 

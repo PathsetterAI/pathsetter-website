@@ -201,7 +201,7 @@ const Waitlist = () => {
           hideProgressBar={false}
           closeOnClick
           pauseOnHover
-          className="pt-14"
+          className="pt-20"
           draggable
           theme="dark"
         />
