@@ -24,12 +24,12 @@
 
 @font-face {
   font-family: "Mokoto";
-  src: url("./assets/fonts/mokoto/Mokoto.ttf") format("truetype");
+  src: url("./assets/Fonts/mokoto/Mokoto.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-/* Global Smooth Scrolling */
+
 html {
   scroll-behavior: smooth;
 }
