@@ -4,7 +4,7 @@ import linkedin from "../assets/Images/linkedin.png";
 
 const Aboutus = () => {
   return (
-    <div id="aboutus" className="w-full bg-black py-24 scroll-mt-28 px-4">
+    <div id="aboutus" className="w-full bg-black py-14 scroll-mt-28 px-4">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-start  gap-10">
         {/* Left side: Text content */}
         <div className="text-white space-y-3  lg:w-2/3">

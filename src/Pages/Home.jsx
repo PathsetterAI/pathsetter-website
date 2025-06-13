@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import Header from "../Components/Header";
 import timeline from "../assets/Videos/red.mp4";
 import intro from "../assets/Videos/IntroVideo.mp4";
@@ -9,30 +9,78 @@ import Contact from "./Contact";
 import Aboutus from "./Aboutus";
 import Enterprise from "./Enterprise";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Home = () => {
   const [activeSection, setActiveSection] = useState("home");
- 
+
+  const sections = [
+    { id: "home" },
+    { id: "features" },
+    { id: "aboutus" },
+    { id: "waitlist" },
+    { id: "contactus" },
+  ];
+
+  useLayoutEffect(() => {
+    const triggers = [];
+
+    // Section detection
+    sections.forEach(({ id }) => {
+      const trigger = ScrollTrigger.create({
+        trigger: `#${id}`,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => setActiveSection(id),
+        onEnterBack: () => setActiveSection(id),
+      });
+      triggers.push(trigger);
+    });
+
+    // Feature section animation
+    gsap.from(".feature-title", {
+      scrollTrigger: {
+        trigger: "#features",
+        start: "top 80%",
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+    });
+
+    return () => {
+      triggers.forEach((t) => t.kill());
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
     <div className="relative w-full">
-      <div   className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/20 shadow-md">
+      {/* Header */}
+      <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/20 shadow-md">
         <Header
           activeSection={activeSection}
           setActiveSection={setActiveSection}
         />
       </div>
 
-      <div id="home" className="h-screen sticky top-0 z-0  scroll-mt-[4500px]">
+      {/* Home Section */}
+      <section id="home" className="h-screen w-full relative">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover transition-all duration-700 ease-in-out"
+          className="w-full h-full object-cover"
         >
           <source src={intro} type="video/mp4" />
         </video>
 
-        <div className="absolute bottom-0 left-0 z-10 px-20 mb-20 items-center">
+        <div className="absolute bottom-0 left-0 z-10 px-20 mb-20">
           <div className="flex flex-col items-start">
             <h1 className="text-5xl text-[#EDF5FC] font-bold">
               The Future of Infrastructure is here…
@@ -43,53 +91,54 @@ const Home = () => {
             </p>
           </div>
         </div>
-      </div>
-      <div id="info" className="relative z-10">
-        <div>
-          <div id="features" className="w-full bg-black px-28 py-20 scroll-mt-[50px]  ">
-            <div className="flex flex-row w-full items-center justify-center space-x-10">
-              <div className="w-3/5 text-white">
-                  <p className="uppercase text-xl text-[#B5C0C9]">
-                  Introducing <span className="">Alfred</span>
-                </p>
-                <h1 className="text-3xl text-[#EDF5FC] font-semiBold my-2">
-                  The AI Project Decisions Engine
-                </h1>
-                <p className="text-lg   text-[#C2C4C6]">
-                  An AI-native project management platform built to drive speed,
-                  clarity, and certainty across your infrastructure lifecycle.
-                </p>
-              </div>
-              <div className="w-full max-w-4xl">
-                <video autoPlay loop muted playsInline className="w-full">
-                  <source src={timeline} type="video/mp4" />
-                </video>
-              </div>
-            </div>
-          </div>
+      </section>
 
-          <div
-            id="features"
-            className="w-full bg-black px-28 py-20 scroll-mt-20"
-          >
-            <div className="text-white">
-              <p className="uppercase text-[#B5C0C9] text-lg mb-2">Features</p>
-              <h1 className="text-3xl  text-[#EDF5FC]">
-                Alfred’s Unique Card-based framework makes projects-easy to
-                manage, collaborate, and AI ready
-              </h1>
-            </div>
-            <Features />
-            <Enterprise />
+      {/* Features Section */}
+      <section id="features" className="bg-black px-28 py-20 scroll-mt-20">
+        <div className="flex flex-row w-full items-center justify-center space-x-10">
+          <div className="w-3/5 text-white">
+            <p className="uppercase text-xl text-[#B5C0C9]">Introducing Alfred</p>
+            <h1 className="text-3xl text-[#EDF5FC] font-semibold my-2">
+              The AI Project Decisions Engine
+            </h1>
+            <p className="text-lg text-[#C2C4C6]">
+              An AI-native project management platform built to drive speed,
+              clarity, and certainty across your infrastructure lifecycle.
+            </p>
+          </div>
+          <div className="w-full max-w-4xl">
+            <video autoPlay loop muted playsInline className="w-full">
+              <source src={timeline} type="video/mp4" />
+            </video>
           </div>
         </div>
-        <div id="aboutus">
-          <Aboutus />
-        </div>
-        <Waitlist  />
 
+        <div className="text-white mt-16 feature-title">
+          <p className="uppercase text-[#B5C0C9] text-lg mb-2">Features</p>
+          <h1 className="text-3xl text-[#EDF5FC]">
+            Alfred’s Unique Card-based framework makes projects easy to manage,
+            collaborate, and AI ready
+          </h1>
+        </div>
+
+        <Features />
+        <Enterprise />
+      </section>
+
+      {/* About Us */}
+      <section id="aboutus" className="scroll-mt-24">
+        <Aboutus />
+      </section>
+
+      {/* Waitlist */}
+      <section id="waitlist" className="scroll-mt-24">
+        <Waitlist />
+      </section>
+
+      {/* Contact */}
+      <section id="contactus" className="scroll-mt-24">
         <Contact />
-      </div>
+      </section>
     </div>
   );
 };
