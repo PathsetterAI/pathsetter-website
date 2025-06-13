@@ -14,16 +14,26 @@ const Header = ({ activeSection, setActiveSection }) => {
         <div className="flex items-center gap-16">
           <img src={logo} alt="Logo" className="w-60 h-20" />
           <div className="flex gap-16 font-light">
-         {["home", "features", "aboutus", "contactus"].map((section) => (
+        {["home", "features", "aboutus", "contactus"].map((section) => (
   <a
     key={section}
     href={`#${section}`}
     className={linkClasses(section)}
-    onClick={() => setActiveSection(section)}
+    onClick={(e) => {
+      e.preventDefault();
+      setActiveSection(section);
+
+      if (section === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
   >
     {section.toUpperCase().replace("US", " US")}
   </a>
 ))}
+
           </div>
         </div>
 

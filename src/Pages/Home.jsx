@@ -28,7 +28,6 @@ const Home = () => {
   useLayoutEffect(() => {
     const triggers = [];
 
-    // Section detection
     sections.forEach(({ id }) => {
       const trigger = ScrollTrigger.create({
         trigger: `#${id}`,
@@ -52,6 +51,18 @@ const Home = () => {
       ease: "power2.out",
     });
 
+    // Fade out home text on scroll
+    gsap.to("#home .home-text", {
+      scrollTrigger: {
+        trigger: "#home",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+      opacity: 0,
+      y: -100,
+    });
+
     return () => {
       triggers.forEach((t) => t.kill());
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -68,8 +79,11 @@ const Home = () => {
         />
       </div>
 
-      {/* Home Section */}
-      <section id="home" className="h-screen w-full relative">
+      {/* Fixed Home Section */}
+      <section
+        id="home"
+        className="fixed top-0 left-0 w-full h-screen z-0"
+      >
         <video
           autoPlay
           loop
@@ -80,21 +94,23 @@ const Home = () => {
           <source src={intro} type="video/mp4" />
         </video>
 
-        <div className="absolute bottom-0 left-0 z-10 px-20 mb-20">
+        <div className="absolute bottom-0 left-0 z-10 px-20 mb-20 text-white home-text">
           <div className="flex flex-col items-start">
-            <h1 className="text-5xl text-[#EDF5FC] font-bold">
+            <h1 className="text-5xl font-bold">
               The Future of Infrastructure is here…
             </h1>
-            <p className=" text-[#C2C4C6]">
-              From planning to execution, harness AI to reimagine how
-              Infrastructure gets delivered
+            <p className="text-[#C2C4C6]">
+              From planning to execution, harness AI to reimagine how Infrastructure gets delivered
             </p>
           </div>
         </div>
       </section>
 
+      {/* Spacer to push rest of content below full-screen video */}
+      <div className="h-screen"></div>
+
       {/* Features Section */}
-      <section id="features" className="bg-black px-28 py-20 scroll-mt-20">
+      <section id="features" className="bg-black px-28 py-20 scroll-mt-20 relative z-10">
         <div className="flex flex-row w-full items-center justify-center space-x-10">
           <div className="w-3/5 text-white">
             <p className="uppercase text-xl text-[#B5C0C9]">Introducing Alfred</p>
@@ -126,17 +142,17 @@ const Home = () => {
       </section>
 
       {/* About Us */}
-      <section id="aboutus" className="scroll-mt-24">
+      <section id="aboutus" className="scroll-mt-24 relative z-10">
         <Aboutus />
       </section>
 
       {/* Waitlist */}
-      <section id="waitlist" className="scroll-mt-24">
+      <section id="waitlist" className="scroll-mt-24 relative z-10">
         <Waitlist />
       </section>
 
       {/* Contact */}
-      <section id="contactus" className="scroll-mt-24">
+      <section id="contactus" className="scroll-mt-24 relative z-10">
         <Contact />
       </section>
     </div>
