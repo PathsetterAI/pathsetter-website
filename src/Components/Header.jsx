@@ -76,7 +76,7 @@ const handleNavClick = (e, section) => {
       className="absolute top-4 right-8 w-6 h-6 cursor-pointer"
     />
 
-    <div className="transition duration-200 bg-black w-[2vg] rounded-xl py-6 space-y-4 text-white text-lg justify-end items-end text-right pr-10 border border-gray-600">
+    <div className="backdrop-blur-md bg-black/20 shadow-md w-[2vg] rounded-xl py-6 space-y-4 text-white text-lg justify-end items-end text-right pr-10 border border-gray-600">
       {navLinks.map((section) => (
         <a
           key={section}
