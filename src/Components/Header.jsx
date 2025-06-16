@@ -1,6 +1,8 @@
 import { useState } from "react";
 import logo from "../assets/Images/PathsetterLogo.png";
 import menu from "../assets/Images/menu.png";
+import close from "../assets/Images/close.png";
+
 
 
 const Header = ({ activeSection, setActiveSection }) => {
@@ -63,14 +65,23 @@ const handleNavClick = (e, section) => {
     </div>
   </div>
 
-  {/* Mobile Navigation */}
-  {isMobileMenuOpen && (
-    <div className="md:hidden fixed top-36 left-0 w-full h-full bg-black/95 z-50 flex flex-col items-center justify-center space-y-8 text-white text-lg">
+ {isMobileMenuOpen && (
+  <div className="md:hidden fixed top-6 left-0 w-full h-full bg-black/95 z-50 flex flex-col items-end px-6">
+    
+    {/* Close button image */}
+    <img
+      src={close} // Make sure the image path is correct
+      alt="Close"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="absolute top-4 right-8 w-6 h-6 cursor-pointer"
+    />
+
+    <div className="transition duration-200 bg-black w-[2vg] rounded-xl py-6 space-y-4 text-white text-lg justify-end items-end text-right pr-10 border border-gray-600">
       {navLinks.map((section) => (
         <a
           key={section}
           href={`#${section}`}
-          className="uppercase pl-40 "
+          className="uppercase block w-full"
           onClick={(e) => handleNavClick(e, section)}
         >
           {section.replace("us", " Us")}
@@ -79,7 +90,7 @@ const handleNavClick = (e, section) => {
 
       <a
         href="#waitlist"
-        className="rounded-full bg-white ml-40 text-black px-6 py-2 mt-4"
+        className="bg-white text-black rounded-full ml-10 px-6 py-2 mt-6"
         onClick={() => {
           setActiveSection("waitlist");
           setIsMobileMenuOpen(false);
@@ -88,7 +99,10 @@ const handleNavClick = (e, section) => {
         GET A DEMO
       </a>
     </div>
-  )}
+  </div>
+)}
+
+
 </header>
 
   );
