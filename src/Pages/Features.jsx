@@ -117,7 +117,7 @@ const Features = () => {
                 {card.title}
               </p>
               <p className="text-[#9CA3AF] text-left text-md ">{card.subTitle}</p>
-              <p className="leading-6 pt-2">{card.description}</p>
+              <p className="leading-6 pt-1">{card.description}</p>
             </div>
           </div>
         </div>
