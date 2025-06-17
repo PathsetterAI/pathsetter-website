@@ -98,7 +98,7 @@ const Home = () => {
 
 
        <div className="flex flex-col items-start max-w-xl space-y-6">
-     <h1 className="text-5xl sm:text-3xl md:text-5xl font-semibold">
+     <h1 className="text-5xl sm:text-3xl md:text-5xl ">
 
               The Future of Infrastructure is here…
             </h1>
@@ -121,7 +121,7 @@ const Home = () => {
          <div className="w-full md:w-3/5 text-white text-center  md:text-left">
 
             <p className="uppercase text-xl text-[#B5C0C9]">Introducing <span style={{fontFamily : "mokoto"}} >Alfred</span> </p>
-            <h1 className="text-3xl text-[#EDF5FC] font-semibold my-2">
+            <h1 className="text-3xl text-[#EDF5FC]  my-2">
               The AI Project Decisions Engine
             </h1>
             <p className="text-lg  text-[#C2C4C6]">
@@ -137,7 +137,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="text-white mt-16 feature-title">
+        <div className="text-white  mt-16 ">
           <p className="uppercase text-[#B5C0C9] text-lg mb-2">Features</p>
           <h1 className="text-3xl text-[#EDF5FC]">
             Alfred’s Unique Card-based framework makes projects easy to manage,

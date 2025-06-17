@@ -54,19 +54,36 @@ const features = [
 
 const Enterprise = () => {
   return (
-    <section className="bg-black  py-20 text-white">
-      <h2 className="text-sm tracking-widest mb-12 text-[#B5C0C9]">ENTERPRISE READY</h2>
-      <div className="grid grid-cols-1 leading-6 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {features.map((item, index) => (
-          <div key={index} className="space-y-2 border-l   border-gray-700 pl-8">
-            <div className="text-white">{item.icon}</div>
-            <h3 className="font-semibold text-[#E2E8F0] pt-8 text-lg">{item.title}</h3>
-            <h4 className="text-sm text-[#9CA3AF] font-medium">{item.subtitle}</h4>
-            <p className="text-sm pt-2 text-[#9CA3AF]">{item.description}</p>
+    <section className="bg-black py-20 text-white">
+  <h2 className="text-sm tracking-widest mb-12 text-[#B5C0C9] uppercase">
+    Enterprise Ready
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    {features.map((item, index) => (
+      <div
+        key={index}
+        className="flex flex-col h-full border-l border-gray-700 pl-8"
+      >
+        <div className="flex flex-col h-full justify-start space-y-4">
+          <div className="h-12">{item.icon}</div> {/* consistent icon height */}
+          <div>
+            <h3 className="text-[#E2E8F0] text-lg ">
+              {item.title}
+            </h3>
+            <h4 className="text-sm text-[#9CA3AF] font-medium">
+              {item.subtitle}
+            </h4>
           </div>
-        ))}
+          <p className="text-sm text-[#9CA3AF]">
+            {item.description}
+          </p>
+        </div>
       </div>
-    </section>
+    ))}
+  </div>
+</section>
+
   );
 };
 

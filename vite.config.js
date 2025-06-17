@@ -10,8 +10,11 @@ export default defineConfig({
   ],
   extend: {
       fontFamily: {
-        mokoto: ["Mokoto", "sans-serif"],
-      },
+      geist: ['GeistRegular', 'sans-serif'],
+      geistMedium: ['GeistMedium', 'sans-serif'],
+      geistExtraBold: ['GeistExtraBold', 'sans-serif'],
+      mokoto: ['Mokoto', 'sans-serif'],
+    },
     },
 })
 

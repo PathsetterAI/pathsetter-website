@@ -9,7 +9,7 @@ const Aboutus = () => {
         {/* Left side: Text content */}
         <div className="text-white space-y-4 lg:w-2/3">
           <p className="uppercase text-2xl sm:text-3xl tracking-widest">About us</p>
-          <h1 className="text-lg sm:text-xl pt-4 font-semibold text-[#EDF5FC]">
+          <h1 className="text-lg sm:text-xl pt-4  text-[#EDF5FC]">
             Solving Infrastructure's Toughest Problems with AI. Together.
           </h1>
           <p className="text-[#9CA3AF] text-sm sm:text-base">
@@ -32,7 +32,7 @@ const Aboutus = () => {
           </p>
 
           <div className="pt-4 space-y-2">
-            <h2 className="text-lg sm:text-xl font-semibold text-[#EDF5FC]">
+            <h2 className="text-lg sm:text-xl text-[#EDF5FC]">
               Our mission is bold:
             </h2>
             <p className="text-base sm:text-lg text-[#9CA3AF] leading-relaxed">
@@ -54,7 +54,7 @@ const Aboutus = () => {
             className="w-40 h-40 sm:w-48 sm:h-48 rounded-lg object-cover shadow-lg"
           />
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center">
-            <h3 className="text-lg sm:text-xl text-[#EDF5FC] font-semibold">Sridhar Gadhi</h3>
+            <h3 className="text-lg sm:text-xl text-[#EDF5FC] ">Sridhar Gadhi</h3>
             <a
               href="https://www.linkedin.com/in/sridhargadhi/"
               target="_blank"

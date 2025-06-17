@@ -3,21 +3,21 @@
 /* Custom Font Faces */
 @font-face {
   font-family: 'GeistRegular';
-  src: url('./assets/Fonts/Geist/Geist-Regular.ttf') format('truetype');
+  src: url('../src/assets/Fonts/Geist/Geist-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'GeistMedium';
-  src: url('./assets/Fonts/Geist/Geist-Medium.ttf') format('truetype');
+  src: url('../src/assets/Fonts/Geist/Geist-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'GeistExtraBold';
-  src: url('./assets/Fonts/Geist/Geist-ExtraBold.ttf') format('truetype');
+  src: url('../src/assets/Fonts/Geist/Geist-ExtraBold.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
 }
@@ -29,7 +29,15 @@
   font-style: normal;
 }
 
-
+body {
+  font-family: 'GeistRegular', sans-serif;
+}
 html {
   scroll-behavior: smooth;
+}
+/* index.css or tailwind.config.css - optional fix for full height alignment */
+.card-grid > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

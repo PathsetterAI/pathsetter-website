@@ -84,7 +84,7 @@ const Features = () => {
 
               {/* Title when closed */}
               <h3
-                className={`text-xl font-semibold items-start text-white transition-all duration-500 ease-in-out ${
+                className={`text-xl  items-start text-white transition-all duration-500 ease-in-out ${
                   !isOpen
                     ? "translate-x-0 opacity-100"
                     : "-translate-x-full opacity-0"
@@ -113,7 +113,7 @@ const Features = () => {
                   : "opacity-0 h-0 -translate-x-full"
               }`}
             >
-              <p className={`text-[#E2E8F0] text-xl font-semibold text-left `}>
+              <p className={`text-[#E2E8F0] text-xl text-left `}>
                 {card.title}
               </p>
               <p className="text-[#9CA3AF] text-left text-md ">{card.subTitle}</p>
