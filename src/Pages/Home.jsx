@@ -11,6 +11,9 @@ import Enterprise from "./Enterprise";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Graphs from "./Graphs";
+import Testimonials from "./Testimonials";
+import Partners from "./Partners";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -140,12 +143,15 @@ const Home = () => {
         <div className="text-white  mt-16 ">
           <p className="uppercase text-[#B5C0C9] text-lg mb-2">alfred usp</p>
           <h1 className="text-3xl text-[#EDF5FC]">
-          The Alfred Advantage- Unlock the power of Gen AI & project knowledge graphs
+          The Alfred Advantage- Unlock the power of Gen AI & Project Knowledge Graphs
           </h1>
         </div>
 
+        <Graphs />
         <Features />
         <Enterprise />
+      <Partners />
+        <Testimonials />
       </section>
 
       {/* About Us */}

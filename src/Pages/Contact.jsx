@@ -1,8 +1,9 @@
 import React from "react";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import alfred from "../assets/Images/PathsetterLogo.png";
+import alfredLogo from "../assets/Images/PathsetterLogo.png"; // small logo
 import linkedin from "../assets/Images/linkedin.png";
+import alfredBg from "../assets/Images/FeaturesDesigns/ALFRED.png"; // big ALFRED text
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -16,31 +17,31 @@ const Contact = () => {
   };
 
   return (
-    <div id="contactus" className="w-full h-full">
-      <div className="px-4 sm:px-8 md:px-16 lg:px-36 py-10 bg-black text-white">
-        {/* Logo and optional nav links */}
+    <div id="contactus" className="relative w-full h-full">
+      {/* Background ALFRED */}
+      <div className="absolute inset-0 flex items-end justify-center pointer-events-none">
+        <img
+          src={alfredBg}
+          alt="Alfred Background"
+          className="w-[90%] sm:w-[80%] lg:w-[70%] opacity-10 select-none"
+        />
+      </div>
+
+      {/* Foreground Content */}
+      <div className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-36 py-10 bg-black text-white">
+        {/* Logo */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-6 sm:space-y-0">
           <div>
             <img
-              src={alfred}
+              src={alfredLogo}
               alt="alfred Logo"
               className="w-48 sm:w-60 h-auto"
             />
           </div>
-
-          {/* Uncomment if needed */}
-          {/* 
-          <div className="flex flex-wrap gap-4 text-[#D1D5DB] uppercase text-sm sm:text-base">
-            <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection("home"); }}>Home</a>
-            <a href="#features" onClick={(e) => { e.preventDefault(); scrollToSection("features"); }}>Features</a>
-            <a href="#aboutus" onClick={(e) => { e.preventDefault(); scrollToSection("aboutus"); }}>About Us</a>
-          </div> 
-          */}
         </div>
 
-        {/* Content */}
+        {/* Contact Info */}
         <div className="pl-0 sm:pl-6 md:pl-10 mt-10 space-y-10">
-          {/* Contact Info */}
           <div className="space-y-2">
             <h1 className="uppercase text-[#CBD5E1] text-sm">Contact info:</h1>
             <h1 className="underline text-[#E2E8F0] text-sm">hello@pathsetter.ai</h1>
@@ -58,7 +59,6 @@ const Contact = () => {
             </a>
           </div>
 
-          {/* US Address */}
           <div className="space-y-2">
             <h1 className="uppercase text-[#CBD5E1] text-sm">United States:</h1>
             <h1 className="text-[#E2E8F0] text-sm">
@@ -66,7 +66,6 @@ const Contact = () => {
             </h1>
           </div>
 
-          {/* India Address */}
           <div className="space-y-2">
             <h1 className="uppercase text-[#CBD5E1] text-sm">India:</h1>
             <h1 className="text-[#E2E8F0] text-sm">
