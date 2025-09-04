@@ -138,10 +138,9 @@ const Home = () => {
         </div>
 
         <div className="text-white  mt-16 ">
-          <p className="uppercase text-[#B5C0C9] text-lg mb-2">Features</p>
+          <p className="uppercase text-[#B5C0C9] text-lg mb-2">alfred usp</p>
           <h1 className="text-3xl text-[#EDF5FC]">
-            Alfred’s Unique Card-based framework makes projects easy to manage,
-            collaborate, and AI ready
+          The Alfred Advantage- Unlock the power of Gen AI & project knowledge graphs
           </h1>
         </div>
 
