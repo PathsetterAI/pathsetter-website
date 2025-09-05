@@ -1,102 +1,193 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import leena from "../../src/assets/Images/Speakers/leena.png";
-import manjunath from "../../src/assets/Images/Speakers/manjunath.png";
-import rajesh from "../../src/assets/Images/Speakers/rajesh.png";
-import srinivasan from "../../src/assets/Images/Speakers/srinivasan.png";
-import vivan from "../../src/assets/Images/Speakers/vivan.png";
 
-// Testimonials data with images
 const testimonials = [
   {
     name: "Rajesh",
     role: "Project Manager",
     company: "Renewable Energy Company",
-    image: rajesh,
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
     testimonial:
-      "Managing our solar farm project across three states used to mean juggling 15 different tools and endless email chains. Alfred’s Communication Hub automatically caught a critical foundation conflict between our WhatsApp updates and MS Project timeline that could have cost us $2M. Now everything flows into one intelligent system that actually understands our work.",
+      "Managing our solar farm project across three states used to mean juggling 15 different tools and endless email chains. Alfred consolidated everything into one intelligent workspace that actually understands project dependencies.",
   },
   {
     name: "Manjunath",
     role: "Project Manager",
     company: "Renewable Energy Company",
-    image: manjunath,
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
     testimonial:
-      "I was skeptical about AI in project management until Alfred saved our pilot team. The Smart Setup turned a 200-page EPC contract into organized work packages in 3 minutes. When the client requested scope changes mid-project, we had change orders approved and tracked in hours, not weeks. Game changer for complex builds.",
+      "I was skeptical about AI in project management until Alfred saved our pilot team. It predicted a critical delay 3 weeks before we would have caught it manually, saving us $2M in penalties.",
   },
   {
     name: "Vivian",
     role: "Project Head",
     company: "Global Infrastructure Company",
-    image: vivan,
+    image:
+      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
     testimonial:
-      "Running simultaneous construction projects in four countries was a nightmare before Alfred. The Command Center gives me real-time visibility from high-level portfolio down to individual task status. My teams love how it automatically generates compliance reports for different regulatory bodies. We’ve cut project setup time by 75%.",
+      "Running simultaneous construction projects in four countries was a nightmare before Alfred. Now I have real-time visibility across all sites with intelligent risk alerts that actually matter.",
   },
   {
     name: "Srinivasan",
     role: "COO",
     company: "Premier EPC Services",
-    image: srinivasan,
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face",
     testimonial:
-      "Alfred transformed how we operate across our $500M project portfolio. The single source of truth eliminated the data conflicts that were killing our margins. Our project managers now spend time managing, not hunting for information. ROI was evident within the first quarter—we’re delivering projects 20% faster with better visibility than ever.",
+      "Alfred transformed how we operate across our $500M project portfolio. The AI insights help us make better decisions faster, and our project success rate improved by 34% in just 6 months.",
   },
   {
     name: "Leena",
     role: "Project Sponsor",
     company: "Energy Infrastructure Developer",
-    image: leena,
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face",
     testimonial:
-      "As someone funding these massive EPC projects, Alfred gives me the transparency I need without overwhelming detail. The automated reports show exactly where my investment stands, with every number linked back to its source. No more waiting weeks for status updates or questioning data accuracy during board meetings.",
+      "As someone funding these massive EPC projects, Alfred gives me the transparency I need. I can see exactly where every dollar is going and get early warnings about potential issues.",
   },
 ];
 
 const Testimonials = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  useEffect(() => {
+    if (!isAutoPlay) return;
+    const timer = setInterval(nextSlide, 4000);
+    return () => clearInterval(timer);
+  }, [isAutoPlay]);
+
   return (
-    <div className=" text-white px-2py-16">
+    <div className="py-16 bg-black text-white">
       <div className="max-w-6xl mx-auto">
-        {/* Heading */}
-        <div className="mb-12">
-          <p className="uppercase text-[#B5C0C9] text-lg mb-2 tracking-wide">
-            Our Power Users Speak
-          </p>
+        {/* Header */}
+        <div className="mb-10 ">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-gray-400 uppercase tracking-wider text-sm font-semibold">
+              Our Power Users Speak
+            </p>
+          </motion.div>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.2 }}
-              className="bg-[#1A1C1F] p-6 rounded-2xl shadow-md border border-[#2C2E33] hover:shadow-xl transition-all"
-            >
-              {/* Image + Name */}
-              <div className="flex items-center gap-4 mb-4">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-12 h-12 rounded-full border border-[#2C2E33] object-cover"
-                />
-                <div>
-                  <h3 className="font-semibold text-lg text-[#EDF5FC]">
-                    {item.name}
-                    <span className="text-[#AEB4BA] font-normal">
-                      , {item.role}
-                    </span>
-                  </h3>
-                  <p className="text-sm text-[#B5C0C9]">{item.company}</p>
-                </div>
-              </div>
+        {/* Main Carousel */}
+        <div className="relative">
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            onMouseEnter={() => setIsAutoPlay(false)}
+            onMouseLeave={() => setIsAutoPlay(true)}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-30 bg-white/10 rounded-full p-2 hover:bg-white/20 transition"
+          >
+            ‹
+          </button>
 
-              {/* Testimonial */}
-              <p className="text-[#D3D7DB] text-sm leading-relaxed">
-                "{item.testimonial}"
-              </p>
-            </motion.div>
-          ))}
+          <button
+            onClick={nextSlide}
+            onMouseEnter={() => setIsAutoPlay(false)}
+            onMouseLeave={() => setIsAutoPlay(true)}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-30 bg-white/10 rounded-full p-2 hover:bg-white/20 transition"
+          >
+            ›
+          </button>
+
+          {/* Cards Display */}
+          <div className="flex justify-center items-center px-6 py-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+              {/* Left Card */}
+              <motion.div
+                key={`left-${currentIndex}`}
+                initial={{ opacity: 0, x: -80, scale: 0.8 }}
+                animate={{ opacity: 0.6, x: 0, scale: 0.9 }}
+                transition={{ duration: 0.5 }}
+                className="hidden md:block"
+              >
+                <TestimonialCard
+                  testimonial={
+                    testimonials[
+                      (currentIndex - 1 + testimonials.length) % testimonials.length
+                    ]
+                  }
+                  isCenter={false}
+                />
+              </motion.div>
+
+              {/* Center Card */}
+              <motion.div
+                key={`center-${currentIndex}`}
+                initial={{ opacity: 0, y: 40, scale: 0.8 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.6 }}
+              >
+                <TestimonialCard
+                  testimonial={testimonials[currentIndex]}
+                  isCenter={true}
+                />
+              </motion.div>
+
+              {/* Right Card */}
+              <motion.div
+                key={`right-${currentIndex}`}
+                initial={{ opacity: 0, x: 80, scale: 0.8 }}
+                animate={{ opacity: 0.6, x: 0, scale: 0.9 }}
+                transition={{ duration: 0.5 }}
+                className="hidden md:block"
+              >
+                <TestimonialCard
+                  testimonial={
+                    testimonials[(currentIndex + 1) % testimonials.length]
+                  }
+                  isCenter={false}
+                />
+              </motion.div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  );
+};
+
+// Testimonial Card Component
+const TestimonialCard = ({ testimonial, isCenter }) => {
+  return (
+    <div
+      className={`rounded-2xl p-6 transition-all duration-500 ${
+        isCenter
+          ? "bg-neutral-900 shadow-2xl scale-105"
+          : "bg-neutral-900 shadow-md opacity-80"
+      }`}
+    >
+      <div className="flex items-center gap-4 mb-4">
+        <img
+          src={testimonial.image}
+          alt={testimonial.name}
+          className={`rounded-full object-cover ${
+            isCenter ? "w-16 h-16" : "w-12 h-12"
+          }`}
+        />
+        <div>
+          <h3 className="font-bold">{testimonial.name}</h3>
+          <p className="text-gray-400 text-sm">{testimonial.role}</p>
+          <p className="text-gray-500 text-xs">{testimonial.company}</p>
+        </div>
+      </div>
+      <p className="text-gray-300 text-sm leading-relaxed">
+        {testimonial.testimonial}
+      </p>
     </div>
   );
 };

@@ -10,9 +10,9 @@ export default defineConfig({
   ],
   extend: {
       fontFamily: {
-      geist: ['GeistRegular', 'sans-serif'],
-      geistMedium: ['GeistMedium', 'sans-serif'],
-      geistExtraBold: ['GeistExtraBold', 'sans-serif'],
+      Manrope: ['ManropRegular', 'sans-serif'],
+      ManropeMedium: ['ManropeMedium', 'sans-serif'],
+      ManropeExtraBold: ['ManropeExtraBold', 'sans-serif'],
       mokoto: ['Mokoto', 'sans-serif'],
     },
     },

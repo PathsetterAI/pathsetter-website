@@ -117,7 +117,7 @@ const Home = () => {
       <div className="h-screen"></div>
 
       {/* Features Section */}
-     <section id="features" className="bg-black px-6 sm:px-12 pt-10 md:px-28 py-10 md:py-20 scroll-mt-20 relative z-10">
+     <section id="features" className="bg-black px-6 sm:px-12 pt-10 md:px-28 py-10  scroll-mt-20 relative z-10">
 
         <div className="flex flex-col-reverse md:flex-row w-full items-center justify-center  space-y-10 md:space-y-0 md:space-x-10">
 

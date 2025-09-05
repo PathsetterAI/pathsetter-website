@@ -16,32 +16,38 @@ const partners = [
 ];
 
 const Partners = () => {
+  // Duplicate array so scrolling looks continuous
+  const logos = [...partners, ...partners];
+
   return (
-    <div className=" py-16 ">
-      <div className="max-w-6xl mx-auto ">
+    <div className="py-16 overflow-hidden">
+      <div className="max-w-6xl mx-auto">
         {/* Heading */}
-        <h2 className="uppercase text-[#B5C0C9] text-lg  mb-10 tracking-wide">
+        <h2 className="uppercase text-[#B5C0C9] text-lg mb-10 tracking-wide">
           Alfred Power Partners
         </h2>
 
-        {/* Logos */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-items-center">
-          {partners.map((partner, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-            
-            >
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="max-h-18 object-contain"
-              />
-            </motion.div>
-          ))}
+        {/* Auto-scroll carousel */}
+        <div className="relative w-full overflow-hidden">
+          <motion.div
+            className="flex gap-12"
+            animate={{ x: ["0%", "-100%"] }}
+            transition={{
+              ease: "linear",
+              duration: 20, // speed (higher = slower)
+              repeat: Infinity,
+            }}
+          >
+            {logos.map((partner, index) => (
+              <div key={index} className="flex-shrink-0 w-40 flex justify-center">
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="h-16 object-contain"
+                />
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </div>

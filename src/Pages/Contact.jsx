@@ -17,25 +17,16 @@ const Contact = () => {
   };
 
   return (
-    <div id="contactus" className="relative w-full h-full">
-      {/* Background ALFRED */}
-      <div className="absolute inset-0 flex items-end justify-center pointer-events-none">
-        <img
-          src={alfredBg}
-          alt="Alfred Background"
-          className="w-[90%] sm:w-[80%] lg:w-[70%] opacity-10 select-none"
-        />
-      </div>
-
+    <div id="contactus" className="relative w-full h-full bg-black text-white">
       {/* Foreground Content */}
-      <div className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-36 py-10 bg-black text-white">
+      <div className="relative z-10 px-4 sm:px-8 md:px-16 lg:px-36 py-10">
         {/* Logo */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-6 sm:space-y-0">
           <div>
             <img
               src={alfredLogo}
               alt="alfred Logo"
-              className="w-48 sm:w-60 h-auto"
+              className="w-48 sm:w-60 h-auto "
             />
           </div>
         </div>
@@ -44,7 +35,9 @@ const Contact = () => {
         <div className="pl-0 sm:pl-6 md:pl-10 mt-10 space-y-10">
           <div className="space-y-2">
             <h1 className="uppercase text-[#CBD5E1] text-sm">Contact info:</h1>
-            <h1 className="underline text-[#E2E8F0] text-sm">hello@pathsetter.ai</h1>
+            <h1 className="underline text-[#E2E8F0] text-sm">
+              hello@pathsetter.ai
+            </h1>
             <a
               href="https://www.linkedin.com/company/pathsetterai/"
               target="_blank"
@@ -88,6 +81,15 @@ const Contact = () => {
             <h1>Alfred by Pathsetter AI © 2025. All rights reserved.</h1>
           </div>
         </div>
+      </div>
+
+      {/* Background ALFRED at Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center pointer-events-none">
+        <img
+          src={alfredBg}
+          alt="Alfred Background"
+          className="w-[90%] sm:w-[100%] lg:w-[100%]  opacity-100 select-none"
+        />
       </div>
     </div>
   );
